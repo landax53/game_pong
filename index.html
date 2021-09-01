@@ -127,7 +127,6 @@
                         if (score == brickColumnCount*brickRowCount) {
                             alert("Vous avez gagné !!!")
                             document.location.reload()
-                            clearInterval(interval)
                         }
                     }
                     }
@@ -160,7 +159,6 @@
                     if (!lives) {
                         alert("GAME OVER")
                         document.location.reload();
-                        clearInterval(interval)
                     } else {
                         x = canvas.width/2
                         y = canvas.height-30;
@@ -192,9 +190,11 @@
             }
             x += dx;
             y += dy;
+
+            requestAnimationFrame(draw)
         }
 
-        let interval = setInterval(draw, 10)
+        draw()
     </script>
     
 </body>
